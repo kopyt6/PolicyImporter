@@ -7,31 +7,30 @@
         xmlns:Win32="clr-namespace:Microsoft.Win32;assembly=PresentationFramework" x:Class="WpfApp1.MainWindow"
         mc:Ignorable="d"
         Title="Importowanie Polis" Height="400" Width="500  ">
-    <Grid Margin="0,0,0.333,0.667" HorizontalAlignment="Right" Width="493">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="163*"/>
-            <ColumnDefinition Width="81*"/>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="31*"/>
-            <ColumnDefinition Width="219*"/>
-        </Grid.ColumnDefinitions>
-        <CheckBox x:Name="BoxWznowieniaBaza" Content="Wznowienia - Baza (.xlsx)" HorizontalAlignment="Left" Margin="42,42,0,0" VerticalAlignment="Top" Command="{Binding Mode=OneWay}" Checked="BoxWznowieniaBaza_Checked" Height="16" Width="163" Grid.ColumnSpan="2">
-            <CheckBox.DataContext>
-                <Win32:OpenFileDialog DefaultExt=".xlsx"/>
-            </CheckBox.DataContext>
-        </CheckBox>
-        <CheckBox x:Name="BoxWartaEagentWznowienia" Content="Warta eAgent - Wznowienia (.csv)" HorizontalAlignment="Left" Margin="42,63,0,0" VerticalAlignment="Top" Checked="BoxWartaEagentWznowienia_Checked" Height="16" Width="227" Grid.ColumnSpan="4"/>
-        <CheckBox x:Name="BoxWartaEagentPolisy" Content="Warta eAgent - Polisy (.csv)" HorizontalAlignment="Left" Margin="42,84,0,0" VerticalAlignment="Top" Checked="BoxWartaEagentPolisy_Checked" Height="16" Width="182" Grid.ColumnSpan="2"/>
-        <CheckBox x:Name="BoxWartaXXI" Content="Warta XXI (.csv)" HorizontalAlignment="Left" Margin="42,105,0,0" VerticalAlignment="Top" Checked="BoxWartaXXI_Checked" Height="16" Width="117"/>
-        <CheckBox x:Name="BoxWartaManager" Content="Warta Manager  (.xlsx)" HorizontalAlignment="Left" Margin="42,126,0,0" VerticalAlignment="Top" Checked="BoxWartaManager_Checked" Height="16" Width="147" Grid.ColumnSpan="2"/>
-        <CheckBox x:Name="BoxPZU" Content="PZU (.xls) - wpisz hasło:" HorizontalAlignment="Left" Margin="42,147,0,0" VerticalAlignment="Top" Checked="BoxPZU_Checked" Height="16" Width="157" Grid.ColumnSpan="2"/>
-        <CheckBox x:Name="BoxHestiaZadania" Content="Hestia - Zadania (.csv)" HorizontalAlignment="Left" Margin="42,168,0,0" VerticalAlignment="Top" Checked="BoxHestiaZadania_Checked" Height="16" Width="144" Grid.ColumnSpan="2"/>
-        <CheckBox x:Name="BoxHestiaPolisy" Content="Hestia - Polisy (.csv)" HorizontalAlignment="Left" Margin="42,186,0,0" VerticalAlignment="Top" Checked="BoxHestiaPolisy_Checked" Height="16" Width="128" Grid.ColumnSpan="2"/>
-        <CheckBox x:Name="BoxMTUPolisy" Content="MTU - Polisy (.csv)" HorizontalAlignment="Left" Margin="42,207,0,0" VerticalAlignment="Top" Checked="BoxMTUPolisy_Checked" Height="16" Width="117"/>
-        <CheckBox x:Name="BoxCompensa" Content="Compensa (.xslx)" HorizontalAlignment="Left" Margin="42,228,0,0" VerticalAlignment="Top" Checked="BoxCompensa_Checked" Height="16" Width="128" Grid.ColumnSpan="2"/>
-        <CheckBox x:Name="BoxUniqa" Content="Uniqa (.xlsx) - wpisz hasło:" HorizontalAlignment="Left" Margin="42,248,0,0" VerticalAlignment="Top" Checked="BoxUniqa_checked" Height="16" Width="179" Grid.ColumnSpan="2"/>
-        <Button   x:Name="ButtonImport" Content="Importuj polisy" HorizontalAlignment="Left" Height="33" Margin="42,318,0,0" VerticalAlignment="Top" Width="217" Click="ButtonImport_Click" Grid.ColumnSpan="4"/>
-        <PasswordBox x:Name="BoxPZUPassword" HorizontalAlignment="Left" Margin="50.333,147,0,0" VerticalAlignment="Top" Width="120" SelectionBrush="#FF90C7F3" KeyDown="BoxPZUPassword_KeyDown" Grid.ColumnSpan="4" Height="16" PasswordChanged="Box_CheckCapslock" Grid.Column="1"/>
-        <PasswordBox x:Name="BoxUniqaPassword" HorizontalAlignment="Left" Margin="50.333,248,0,0" VerticalAlignment="Top" Width="120" SelectionBrush="#FF90C7F3" KeyDown="BoxUniqaPassword_KeyDown" Grid.ColumnSpan="4" Height="16" PasswordChanged="Box_CheckCapslock" Grid.Column="1"/>
-    </Grid>
+    <Viewbox HorizontalAlignment="Right" Margin="0,0,0.333,0.667" Stretch="Fill" Width="493">
+        <Grid Height="369.999666666667" Width="493">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="486*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+            <CheckBox x:Name="BoxWznowieniaBaza" Content="Wznowienia - Baza (.xlsx)" HorizontalAlignment="Left" Margin="24,42,0,0" VerticalAlignment="Top" Command="{Binding Mode=OneWay}" Checked="BoxWznowieniaBaza_Checked" Height="16" Width="163" MouseEnter="MouseOverBox">
+                <CheckBox.DataContext>
+                    <Win32:OpenFileDialog DefaultExt=".xlsx"/>
+                </CheckBox.DataContext>
+            </CheckBox>
+            <CheckBox x:Name="BoxWartaEagentWznowienia" Content="Warta eAgent - Wznowienia (.csv)" HorizontalAlignment="Left" Margin="24,63,0,0" VerticalAlignment="Top" Checked="BoxWartaEagentWznowienia_Checked" Height="16" Width="227" MouseEnter="MouseOverBox"/>
+            <CheckBox x:Name="BoxWartaEagentPolisy" Content="Warta eAgent - Polisy (.csv)" HorizontalAlignment="Left" Margin="24,84,0,0" VerticalAlignment="Top" Checked="BoxWartaEagentPolisy_Checked" Height="16" Width="182" MouseEnter="MouseOverBox"/>
+            <CheckBox x:Name="BoxWartaXXI" Content="Warta XXI (.csv)" HorizontalAlignment="Left" Margin="24,105,0,0" VerticalAlignment="Top" Checked="BoxWartaXXI_Checked" Height="16" Width="117" MouseEnter="MouseOverBox"/>
+            <CheckBox x:Name="BoxWartaManager" Content="Warta Manager  (.xlsx)" HorizontalAlignment="Left" Margin="24,126,0,0" VerticalAlignment="Top" Checked="BoxWartaManager_Checked" Height="16" Width="147" MouseEnter="MouseOverBox"/>
+            <CheckBox x:Name="BoxPZU" Content="PZU (.xls) - wpisz hasło:" HorizontalAlignment="Left" Margin="24,147,0,0" VerticalAlignment="Top" Checked="BoxPZU_Checked" Height="16" Width="157" MouseEnter="MouseOverBox"/>
+            <CheckBox x:Name="BoxHestiaZadania" Content="Hestia - Zadania (.csv)" HorizontalAlignment="Left" Margin="24,168,0,0" VerticalAlignment="Top" Checked="BoxHestiaZadania_Checked" Height="16" Width="144" MouseEnter="MouseOverBox"/>
+            <CheckBox x:Name="BoxHestiaPolisy" Content="Hestia - Polisy (.csv)" HorizontalAlignment="Left" Margin="24,186,0,0" VerticalAlignment="Top" Checked="BoxHestiaPolisy_Checked" Height="16" Width="128" MouseEnter="MouseOverBox"/>
+            <CheckBox x:Name="BoxMTUPolisy" Content="MTU - Polisy (.csv)" HorizontalAlignment="Left" Margin="24,207,0,0" VerticalAlignment="Top" Checked="BoxMTUPolisy_Checked" Height="16" Width="117" MouseEnter="MouseOverBox"/>
+            <CheckBox x:Name="BoxCompensa" Content="Compensa (.xslx)" HorizontalAlignment="Left" Margin="24,228,0,0" VerticalAlignment="Top" Checked="BoxCompensa_Checked" Height="16" Width="128" MouseEnter="MouseOverBox"/>
+            <CheckBox x:Name="BoxUniqa" Content="Uniqa (.xlsx) - wpisz hasło:" HorizontalAlignment="Left" Margin="24,248,0,0" VerticalAlignment="Top" Checked="BoxUniqa_checked" Height="16" Width="179" MouseEnter="MouseOverBox"/>
+            <PasswordBox x:Name="BoxPZUPassword" HorizontalAlignment="Left" Margin="229,147,0,0" VerticalAlignment="Top" Width="120" SelectionBrush="#FF90C7F3" KeyDown="BoxPZUPassword_KeyDown" Height="16" PasswordChanged="Box_CheckCapslock"/>
+            <PasswordBox x:Name="BoxUniqaPassword" HorizontalAlignment="Left" Margin="229,248,0,0" VerticalAlignment="Top" Width="120" SelectionBrush="#FF90C7F3" KeyDown="BoxUniqaPassword_KeyDown" Height="16" PasswordChanged="Box_CheckCapslock"/>
+            <Button   x:Name="ButtonImport" Content="Importuj polisy" HorizontalAlignment="Left" Height="33" Margin="24,318,0,0" VerticalAlignment="Top" Width="217" Click="ButtonImport_Click"/>
+        </Grid>
+    </Viewbox>
 </Window>

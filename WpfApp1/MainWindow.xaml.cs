@@ -18,89 +18,100 @@ namespace WpfApp1
 
         private void BoxWznowieniaBaza_Checked(object sender, RoutedEventArgs e)
         {
-            filesToImport.PathBaza = GetFilePath();
+            String filepath = GetFilePath();
+            filesToImport.PathBaza = filepath;
+            SetSenderUid(filepath, sender);
         }
 
         private void BoxWartaEagentWznowienia_Checked(object sender, RoutedEventArgs e)
         {
-            filesToImport.PathWartaEagentWznowienia = GetFilePath();
+            String filepath = GetFilePath();
+            filesToImport.PathWartaEagentWznowienia = filepath;
+            SetSenderUid(filepath, sender);
         }
 
         private void BoxWartaEagentPolisy_Checked(object sender, RoutedEventArgs e)
         {
-            filesToImport.PathWartaEagentPolisy = GetFilePath();
+            String filepath = GetFilePath();
+            filesToImport.PathWartaEagentPolisy = filepath;
+            SetSenderUid(filepath, sender);
         }
-
         private void BoxWartaXXI_Checked(object sender, RoutedEventArgs e)
         {
-            filesToImport.PathWartaXXI = GetFilePath();
+            String filepath = GetFilePath();
+            filesToImport.PathWartaXXI = filepath;
+            SetSenderUid(filepath, sender);
         }
 
         private void BoxWartaManager_Checked(object sender, RoutedEventArgs e)
         {
-            filesToImport.PathWartaManager = GetFilePath();
+            String filepath = GetFilePath();
+            filesToImport.PathWartaManager = filepath;
+            SetSenderUid(filepath, sender);
         }
 
         private void BoxPZU_Checked(object sender, RoutedEventArgs e)
         {
-            filesToImport.PathPZU = GetFilePath();
+            String filepath = GetFilePath();
+            filesToImport.PathPZU = filepath;
+            SetSenderUid(filepath, sender);
             //var password = 
         }
 
         private void BoxHestiaZadania_Checked(object sender, RoutedEventArgs e)
         {
-            filesToImport.PathHestiaZadania = GetFilePath();
+            String filepath = GetFilePath();
+            filesToImport.PathHestiaZadania = filepath;
+            SetSenderUid(filepath, sender);
         }
 
         private void BoxHestiaPolisy_Checked(object sender, RoutedEventArgs e)
         {
-            filesToImport.PathHestiaPolisy = GetFilePath();
+            String filepath = GetFilePath();
+            filesToImport.PathHestiaPolisy = filepath;
+            SetSenderUid(filepath, sender);
         }
 
         private void BoxMTUPolisy_Checked(object sender, RoutedEventArgs e)
         {
-            filesToImport.PathMTUPolisy = GetFilePath();
+            String filepath = GetFilePath();
+            filesToImport.PathMTUPolisy = filepath;
+            SetSenderUid(filepath, sender);
         }
 
         private void BoxCompensa_Checked(object sender, RoutedEventArgs e)
         {
-            filesToImport.PathCompensa = GetFilePath();
+            String filepath = GetFilePath();
+            filesToImport.PathCompensa = filepath;
+            SetSenderUid(filepath, sender);
         }
 
         private void BoxUniqa_checked(object sender, RoutedEventArgs e)
         {
-            filesToImport.PathUniqa = GetFilePath();
+            String filepath = GetFilePath();
+            filesToImport.PathUniqa = filepath;
+            SetSenderUid(filepath, sender);
         }
 
         private void ButtonImport_Click(object sender, RoutedEventArgs e)
         {
             // ImportPolicies(filesToImport)
         }
-        private static String GetFilePath()
-        {
-            Nullable<bool> result = fileDialog.ShowDialog();
-            String filename = "";
-            if (result == true)
-            {
-                filename = fileDialog.FileName;
-            }
-            return filename;
-        }
 
         private void BoxPZUPassword_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == System.Windows.Input.Key.Enter)
             {
+            //TODO: GETTING PASSWORD FROM HERE
                 MessageBox.Show("Hasło zostało ustawione.");
             }
         }
-        
+
         private void BoxUniqaPassword_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == System.Windows.Input.Key.Enter)
             {
                 MessageBox.Show("Hasło zostało ustawione.");
-                MessageBox.Show(filesToImport.ToString());
             }
         }
 
@@ -110,6 +121,32 @@ namespace WpfApp1
             {
                 MessageBox.Show("Caps Lock jest wciśnięty.");
             }
+        }
+        private void MouseOverBox(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            CheckBox checkbox = (CheckBox)sender;
+            if ((bool)checkbox.IsChecked)
+            {
+                ToolTip tooltip = new ToolTip();
+                tooltip.Content = "dupa";
+                tooltip.Content = checkbox.Uid;
+                checkbox.ToolTip = tooltip;
+            }
+        }
+        private static String GetFilePath()
+        {
+            Nullable<bool> result = fileDialog.ShowDialog();
+            String filepath = "";
+            if (result == true)
+            {
+                filepath = fileDialog.FileName;
+            }
+            return filepath;
+        }
+        private static void SetSenderUid(String path, object sender)
+        {
+            CheckBox checkbox = (CheckBox)sender;
+            checkbox.Uid = path;
         }
     }
 }
